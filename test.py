@@ -13,3 +13,5 @@ FACE_DETECTION_THRESHOLD = 5 # Время (в секундах), после ко
 OS_TYPE = platform.system()
 last_active_time = time.time() # Время последней активности
 last_face_detected_time = time.time()  # Время последнего обнаруженного лица
+
+CASCADE_PATH = r'haar_metod/haarcascade_frontalface_default.xml'
