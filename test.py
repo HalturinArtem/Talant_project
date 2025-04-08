@@ -62,3 +62,10 @@ keyboard_listener = keyboard.Listener(on_press=lambda key: on_activity())
 mouse_listener.start()
 keyboard_listener.start()
 
+while True:
+    detect_face()  # Проверяем наличие лица через веб-камеру
+
+    if get_idle_time() > IDLE_THRESHOLD or (time.time() - last_face_detected_time > FACE_DETECTION_THRESHOLD):
+        monitor_off()  # Отключаем монитор, если пользователь неактивен или его нет перед камерой
+
+    time.sleep(10)  # Проверяем каждые 10 секунд
