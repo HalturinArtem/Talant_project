@@ -53,3 +53,12 @@ def detect_face():
             last_face_detected_time = time.time()  # Обновляем время обнаружения лица
 
     cap.release()  # Закрываем веб-камеру
+
+# Запуск слушателей клавиатуры и мыши
+mouse_listener = mouse.Listener(on_move=lambda x, y: on_activity(),
+                                on_click=lambda x, y, button, pressed: on_activity())
+keyboard_listener = keyboard.Listener(on_press=lambda key: on_activity())
+
+mouse_listener.start()
+keyboard_listener.start()
+
