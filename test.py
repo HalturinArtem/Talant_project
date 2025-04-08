@@ -14,4 +14,5 @@ OS_TYPE = platform.system()
 last_active_time = time.time() # Время последней активности
 last_face_detected_time = time.time()  # Время последнего обнаруженного лица
 
+# Указываем полный путь до файла каскада
 CASCADE_PATH = r'haar_metod/haarcascade_frontalface_default.xml'
