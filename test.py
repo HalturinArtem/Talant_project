@@ -39,3 +39,17 @@ def on_activity():
     last_active_time = time.time()
     monitor_on()
 
+def detect_face():
+    """Использует веб-камеру для обнаружения лица пользователя."""
+    global last_face_detected_time
+
+    cap = cv2.VideoCapture(0)  # Открываем веб-камеру
+    ret, frame = cap.read()  # Читаем кадр
+
+    if ret:
+        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)  # Преобразуем изображение в черно-белое
+        faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5, minSize=(50, 50))
+        if len(faces) > 0:
+            last_face_detected_time = time.time()  # Обновляем время обнаружения лица
+
+    cap.release()  # Закрываем веб-камеру
