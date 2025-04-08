@@ -16,3 +16,6 @@ last_face_detected_time = time.time()  # Время последнего обн�
 
 # Указываем полный путь до файла каскада
 CASCADE_PATH = r'haar_metod/haarcascade_frontalface_default.xml'
+
+# Загружаем каскадный классификатор для распознавания лиц
+face_cascade = cv2.CascadeClassifier(CASCADE_PATH)
