@@ -32,3 +32,10 @@ def monitor_on():
         ctypes.windll.user32.SendMessageW(0xFFFF, 0x0112, 0xF170, -1)
     elif OS_TYPE == "Linux":
         os.system("xset dpms force on")
+
+def on_activity():
+    """Сбрасывает таймер бездействия и включает монитор при обнаружении активности пользователя."""
+    global last_active_time
+    last_active_time = time.time()
+    monitor_on()
+
